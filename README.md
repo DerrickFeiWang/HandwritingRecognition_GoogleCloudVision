@@ -1,9 +1,9 @@
 # Printed and handwritten text extraction from images using Tesseract and Google Cloud Vision API
 
-Text extraction from image files is an useful technique for document digitalization. There are several well developed OCR engines for printed text extraction, such as Tesseract and EasyOCR [1]. However, for handwritten text extraction, it's more challenging because of large variations in handwritings from person to person. Tesseract and EasyOCR can't achieve satisfacting results unless the texts are hand printed. In this post, I will describe how to use Tesseract to extract printed texts, and use Google Cloud Vision API to extract handwritten texts.
+Text extraction from image files is an useful technique for document digitalization. There are several well developed OCR engines for printed text extraction, such as Tesseract and EasyOCR [1]. However, for handwritten text extraction, it's more challenging because of large variations in handwriting from person to person. Tesseract and EasyOCR can't achieve satisfying results unless the texts are hand-printed. In this post, I will describe how to use Tesseract to extract printed texts, and use Google Cloud Vision API to extract handwritten texts.
 <br>
 <br>
-The example text image file is from the IAM handwriting dataset [2]. It has a printted text session, and hand written session for the same text content.
+The example text image file is from the IAM handwriting dataset [2]. It has a printed text session, and handwritten session for the same text content.
 
 ![image](https://user-images.githubusercontent.com/44976640/89544581-ea719f00-d7c7-11ea-8544-42941970d1d4.png)
 <br>
@@ -16,7 +16,7 @@ The following major tools are used:<br>
 
 
 ## Step 1, Page Segmentation.
-We will use OpenCV to find lines between sections, and use the coordinates of the lines to break the image into segments. OpenCV has a function called getStructuringElement(). We can define the structure type as rectangle ("MORPH_RECT"), minimum width (200) and height (1) of the rectangle to find horizontal lines.
+We will use OpenCV to find lines between sections, and use the coordinates of the lines to break the image into segments. OpenCV has a function called getStructuringElement(). We can define the structure type as a rectangle ("MORPH_RECT"), minimum width (200) ,and height (1) of the rectangle to find horizontal lines.
 
 ```python
 def findHorizontalLines(img):
@@ -47,7 +47,7 @@ From the above segmentation results, we can see that the segments containing the
 
 ## Step 2. Extract Printed Text
 
-In this step, we will use Tesseract OCR engine to extract printed text from image segment. If you don't already have Tesseracct installed on your machine, you can download the installation file from [here](http://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-setup-4.00.00dev.exe). 
+In this step, we will use Tesseract OCR engine to extract printed text from an image segment. If you don't already have Tesseracct installed on your machine, you can download the installation file from [here](http://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-setup-4.00.00dev.exe). 
 
 You will also need to install the pytesseract library in order to call Tesseract engine from Python.
 
@@ -66,10 +66,10 @@ def extractTextFromImg(segment):
 ```
 ![image](https://user-images.githubusercontent.com/44976640/89548299-74236b80-d7cc-11ea-9376-bfd6f310ac23.png)
 
-Tesseract OCR doesn't work well on handwritten texts. When passing the the hand written segment into Tesseract, we get very poor reading result. See below.
+Tesseract OCR doesn't work well on handwritten texts. When passing the handwritten segment into Tesseract, we get very poor reading results. See below.
 ![image](https://user-images.githubusercontent.com/44976640/89548753-06c40a80-d7cd-11ea-9079-6fe2c5832801.png)
 
-For handwritten text, we will use Google Cloud Vision API to get better result.
+For handwritten text, we will use Google Cloud Vision API to get better results.
 
 ## Step 3. Extract handwritten text using Google Cloud Vision API
 In order to use the Google Cloud Vision API, you will need to login to your google account, create a project or select an existing project, then enable Cloud Vision API. You will also need to create a service account key and save the its json file to your local drive following the instruction on [Google Cloud](https://cloud.google.com/vision/docs/before-you-begin).  
@@ -106,6 +106,6 @@ def getTextFromVisionResponse(response):
 
 ![image](https://user-images.githubusercontent.com/44976640/89550439-3b38c600-d7cf-11ea-8cf9-fca98ee14fc5.png)
 
-From the above results, we can see that Google Cloud Vision API has done much better job in extracting texts from image file than Tesseract.
+From the above results, we can see that Google Cloud Vision API has done a much better job in extracting texts from image files than Tesseract.
 
 
