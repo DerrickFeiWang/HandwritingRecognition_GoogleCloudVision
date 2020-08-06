@@ -72,7 +72,7 @@ Tesseract OCR doesn't work well on handwritten texts. When passing the handwritt
 For handwritten text, we will use Google Cloud Vision API to get better results.
 
 ## Step 3. Extract handwritten text using Google Cloud Vision API
-In order to use the Google Cloud Vision API, you will need to login to your google account, create a project or select an existing project, then enable Cloud Vision API. You will also need to create a service account key and save the its json file to your local drive following the instruction on [Google Cloud](https://cloud.google.com/vision/docs/before-you-begin).  
+In order to use the Google Cloud Vision API, you will need to login to your google account, create a project or select an existing project, then enable Cloud Vision API. You will also need to create a service account key and save its json file to your local drive following the instruction on [Google Cloud](https://cloud.google.com/vision/docs/before-you-begin).  
 
 Now we can specify the location of json file that has the service account key, and use the following Python script to feed the handwritten image to Google Cloud Vision API to extract text from it. 
 
