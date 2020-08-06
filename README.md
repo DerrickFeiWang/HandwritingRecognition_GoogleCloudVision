@@ -15,7 +15,7 @@ The following major tools are used:<br>
 **Tesseract and Pytesseract**, For extract text from printed segment<br>
 
 
-## Step 1, Page Segmentation.
+## Step 1. Page Segmentation.
 We will use OpenCV to find lines between sections, and use the coordinates of the lines to break the image into segments. OpenCV has a function called getStructuringElement(). We can define the structure type as a rectangle ("MORPH_RECT"), minimum width (200) ,and height (1) of the rectangle to find horizontal lines.
 
 ```python
