@@ -67,6 +67,7 @@ def extractTextFromImg(segment):
 ![image](https://user-images.githubusercontent.com/44976640/89548299-74236b80-d7cc-11ea-9376-bfd6f310ac23.png)
 
 Tesseract OCR doesn't work well on handwritten texts. When passing the handwritten segment into Tesseract, we get very poor reading results. See below.
+
 ![image](https://user-images.githubusercontent.com/44976640/89548753-06c40a80-d7cd-11ea-9079-6fe2c5832801.png)
 
 For handwritten text, we will use Google Cloud Vision API to get better results.
