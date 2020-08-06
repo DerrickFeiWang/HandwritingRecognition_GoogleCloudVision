@@ -106,6 +106,6 @@ def getTextFromVisionResponse(response):
 
 ![image](https://user-images.githubusercontent.com/44976640/89550439-3b38c600-d7cf-11ea-8cf9-fca98ee14fc5.png)
 
-We can see although its not 100% accurate, Google Cloud Vision API has done much better job in extracting texts from image file than Tesseract.
+From the above results, we can see that Google Cloud Vision API has done much better job in extracting texts from image file than Tesseract.
 
 
